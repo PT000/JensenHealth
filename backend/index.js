@@ -9,9 +9,8 @@ async function start() {
   const db = await bestSqlite.connect(dbPath);
   const app = express();
   app.use(express.json());
-  restApi(app, db);
   app.use(express.static('dist'));
-
+  restApi(app, db);
   app.listen(port, () => console.log('Backend listening on http://localhost:' + port));
 }
 
